@@ -1,4 +1,4 @@
-Meus comentários sobre o primeiro trecho do livro Software Engineering at Google:
+## Meus comentários sobre o primeiro trecho do livro Software Engineering at Google:
 
   O texto explica que programação e engenharia de software não são exatamente a mesma coisa. Programação está mais ligada a escrever código, enquanto engenharia de software envolve aplicar conhecimentos teóricos e métodos estruturados para criar sistemas mais precisos e confiáveis, de forma semelhante ao trabalho de engenheiros de outras áreas.
 
@@ -6,7 +6,7 @@ Em profissões como engenharia civil ou mecânica, há normas e práticas muito 
 
 
 
-Meu comentário sobre o segundo trecho:
+## Meu comentário sobre o segundo trecho:
 
   Esse segundo trecho apresenta a ideia de que engenharia de software não é apenas escrever código, mas também incluir todas as ferramentas e processos que ajudam a criar e manter esse código ao longo do tempo. A questão central é como manter o código útil e sustentável durante toda a sua vida, desde a criação até a desativação.
 
