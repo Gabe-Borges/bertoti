@@ -20,5 +20,26 @@ A visão do Google, baseada em sua experiência, é que engenharia de software p
 
 
 
+## Exemplos de tradeoffs:
+
+**1. Desempenho vs. Legibilidade do Código:**
+
+Exemplo: Ao otimizar um trecho de código para melhorar o desempenho (por exemplo, usando técnicas como cache ou algoritmos mais complexos), o código pode se tornar mais difícil de ler e manter.
+
+Tradeoff: Em um projeto de software, há uma escolha entre otimizar o código para ser mais rápido e eficiente ou mantê-lo simples e fácil de entender para os desenvolvedores, facilitando a manutenção e a evolução do sistema.
+
+**2. Escalabilidade vs. Complexidade Arquitetural:**
+
+Exemplo: Ao projetar um sistema que precisa lidar com um grande volume de tráfego, você pode optar por uma arquitetura distribuída que permita escalabilidade horizontal (como microserviços). No entanto, essa abordagem tende a aumentar a complexidade do sistema, pois requer gestão de vários serviços, comunicação entre eles e controle de falhas.
+
+Tradeoff: A busca por escalabilidade pode resultar em um sistema mais complexo, que exige mais esforço para desenvolvimento, monitoramento e manutenção.
+
+**3. Desenvolvimento Rápido vs. Qualidade do Código:**
+
+Exemplo: Em um cenário de desenvolvimento ágil, pode-se priorizar a entrega rápida de funcionalidades, o que pode resultar em código com menos cobertura de testes, maior dívida técnica ou maior acoplamento entre componentes.
+
+Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapidamente pode acelerar o desenvolvimento inicial, mas a longo prazo pode resultar em um sistema mais difícil de manter e propenso a falhas.
+
+
 
 
