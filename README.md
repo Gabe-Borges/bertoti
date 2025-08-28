@@ -40,6 +40,10 @@ Exemplo: Em um cenário de desenvolvimento ágil, pode-se priorizar a entrega r�
 
 Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapidamente pode acelerar o desenvolvimento inicial, mas a longo prazo pode resultar em um sistema mais difícil de manter e propenso a falhas.
 
+## Diagrama de Classes UML:
+
+<img width="686" height="227" alt="Padaria" src="https://github.com/user-attachments/assets/c2a9bd4b-ff94-4038-900d-ce8b6cf15a62" />
+
 
 
 
