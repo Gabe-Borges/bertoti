@@ -46,8 +46,8 @@ Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapida
 
 ## Código Java de cada uma das classes: 
 
-**Pão: **
-
+Pão:
+```
 public class Pao {
     private float preco;
     private float vendasPao;
@@ -56,7 +56,7 @@ public class Pao {
         this.preco = preco;
         this.vendasPao = 0;
     }
-
+    
     public float getPreco() {
         return preco;
     }
@@ -71,8 +71,10 @@ public class Pao {
     }
 }
 
-**Padaria: **
+```
 
+Padaria:
+```
 public class Padaria {
     private boolean temPao;
     private String horarioFuncionamento;
@@ -100,9 +102,10 @@ public class Padaria {
         this.horarioFuncionamento = horarioFuncionamento;
     }
 }
+``` 
 
-**Cliente: **
-
+Cliente: 
+```
 public class Cliente {
     public String fazerPedido(Padaria padaria) {
         if (padaria.isTemPao()) {
@@ -116,9 +119,10 @@ public class Cliente {
         return preco < 5 && temPao && horarioFuncionamento.equals("Aberto");
     }
 }
+```
 
-**Teste: 
-
+Teste: 
+```
 public class Teste {
     public static void main(String[] args) {
         Pao pao = new Pao(3.50f);
@@ -135,7 +139,7 @@ public class Teste {
         System.out.println("Vendas de pão: " + pao.getVendasPao());
     }
 }
-
+```
 
 
 
