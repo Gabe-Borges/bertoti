@@ -44,6 +44,95 @@ Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapida
 
 <img width="686" height="227" alt="Padaria" src="https://github.com/user-attachments/assets/c2a9bd4b-ff94-4038-900d-ce8b6cf15a62" />
 
+## Código Java de cada uma das classes: 
+
+**Pão:
+public class Pao {
+    private float preco;
+    private float vendasPao;
+
+    public Pao(float preco) {
+        this.preco = preco;
+        this.vendasPao = 0;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+    public float getVendasPao() {
+        return vendasPao;
+    }
+    public void venderPao() {
+        this.vendasPao++;
+    }
+}
+
+**Padaria:
+public class Padaria {
+    private boolean temPao;
+    private String horarioFuncionamento;
+
+    public Padaria(boolean temPao, String horarioFuncionamento) {
+        this.temPao = temPao;
+        this.horarioFuncionamento = horarioFuncionamento;
+    }
+
+    public float renda() {
+        return temPao ? 100.0f : 50.0f;
+    }
+
+    public boolean isTemPao() {
+        return temPao;
+    }
+    public void setTemPao(boolean temPao) {
+        this.temPao = temPao;
+    }
+
+    public String getHorarioFuncionamento() {
+        return horarioFuncionamento;
+    }
+    public void setHorarioFuncionamento(String horarioFuncionamento) {
+        this.horarioFuncionamento = horarioFuncionamento;
+    }
+}
+
+**Cliente:
+public class Cliente {
+    public String fazerPedido(Padaria padaria) {
+        if (padaria.isTemPao()) {
+            return "Pedido feito!";
+        } else {
+            return "Desculpe, o pão não está disponível.";
+        }
+    }
+
+    public boolean checarRequisitos(float preco, String horarioFuncionamento, boolean temPao) {
+        return preco < 5 && temPao && horarioFuncionamento.equals("Aberto");
+    }
+}
+
+**Teste:
+public class Teste {
+    public static void main(String[] args) {
+        Pao pao = new Pao(3.50f);
+        Padaria padaria = new Padaria(true, "Aberto");
+
+        Cliente cliente = new Cliente();
+
+        System.out.println(cliente.fazerPedido(padaria));
+
+        boolean podeFazerPedido = cliente.checarRequisitos(pao.getPreco(), padaria.getHorarioFuncionamento(), padaria.isTemPao());
+        System.out.println("O cliente pode fazer o pedido? " + podeFazerPedido);
+
+        pao.venderPao();
+        System.out.println("Vendas de pão: " + pao.getVendasPao());
+    }
+}
+
+
 
 
 
