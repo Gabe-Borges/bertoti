@@ -1,4 +1,4 @@
-## Meus comentários sobre o primeiro trecho do livro Software Engineering at Google:
+## 1. Meus comentários sobre o primeiro trecho do livro Software Engineering at Google:
 
   O texto explica que programação e engenharia de software não são exatamente a mesma coisa. Programação está mais ligada a escrever código, enquanto engenharia de software envolve aplicar conhecimentos teóricos e métodos estruturados para criar sistemas mais precisos e confiáveis, de forma semelhante ao trabalho de engenheiros de outras áreas.
 
@@ -6,7 +6,7 @@ Em profissões como engenharia civil ou mecânica, há normas e práticas muito 
 
 
 
-## Meu comentário sobre o segundo trecho:
+## 2. Meu comentário sobre o segundo trecho:
 
   Esse segundo trecho apresenta a ideia de que engenharia de software não é apenas escrever código, mas também incluir todas as ferramentas e processos que ajudam a criar e manter esse código ao longo do tempo. A questão central é como manter o código útil e sustentável durante toda a sua vida, desde a criação até a desativação.
 
@@ -20,7 +20,7 @@ A visão do Google, baseada em sua experiência, é que engenharia de software p
 
 
 
-## Exemplos de tradeoffs:
+## 3. Exemplos de tradeoffs:
 
 **1. Desempenho vs. Legibilidade do Código:**
 
@@ -40,13 +40,13 @@ Exemplo: Em um cenário de desenvolvimento ágil, pode-se priorizar a entrega r�
 
 Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapidamente pode acelerar o desenvolvimento inicial, mas a longo prazo pode resultar em um sistema mais difícil de manter e propenso a falhas.
 
-## Diagrama de Classes UML:
+## 4. Diagrama de Classes UML:
 
 <img width="686" height="227" alt="Padaria" src="https://github.com/user-attachments/assets/c2a9bd4b-ff94-4038-900d-ce8b6cf15a62" />
 
-## Código Java de cada uma das classes: 
+## 5-6. Código Java de cada uma das classes: 
 
-Pão:
+**Pão:**
 ```
 public class Pao {
     private float preco;
@@ -73,7 +73,7 @@ public class Pao {
 
 ```
 
-Padaria:
+**Padaria:**
 ```
 public class Padaria {
     private boolean temPao;
@@ -104,7 +104,7 @@ public class Padaria {
 }
 ``` 
 
-Cliente: 
+**Cliente:** 
 ```
 public class Cliente {
     public String fazerPedido(Padaria padaria) {
@@ -121,7 +121,7 @@ public class Cliente {
 }
 ```
 
-Teste: 
+**Teste:** 
 ```
 public class Teste {
     public static void main(String[] args) {
