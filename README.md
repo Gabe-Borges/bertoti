@@ -22,31 +22,30 @@ A visão do Google, baseada em sua experiência, é que engenharia de software p
 
 ## 3. Exemplos de tradeoffs:
 
-**1. Desempenho vs. Legibilidade do Código:**
+`1. Desempenho vs. Legibilidade do Código:`
 
 Exemplo: Ao otimizar um trecho de código para melhorar o desempenho (por exemplo, usando técnicas como cache ou algoritmos mais complexos), o código pode se tornar mais difícil de ler e manter.
 
 Tradeoff: Em um projeto de software, há uma escolha entre otimizar o código para ser mais rápido e eficiente ou mantê-lo simples e fácil de entender para os desenvolvedores, facilitando a manutenção e a evolução do sistema.
 
-**2. Escalabilidade vs. Complexidade Arquitetural:**
+`2. Escalabilidade vs. Complexidade Arquitetural:`
 
 Exemplo: Ao projetar um sistema que precisa lidar com um grande volume de tráfego, você pode optar por uma arquitetura distribuída que permita escalabilidade horizontal (como microserviços). No entanto, essa abordagem tende a aumentar a complexidade do sistema, pois requer gestão de vários serviços, comunicação entre eles e controle de falhas.
 
 Tradeoff: A busca por escalabilidade pode resultar em um sistema mais complexo, que exige mais esforço para desenvolvimento, monitoramento e manutenção.
 
-**3. Desenvolvimento Rápido vs. Qualidade do Código:**
+`3. Desenvolvimento Rápido vs. Qualidade do Código:`
 
 Exemplo: Em um cenário de desenvolvimento ágil, pode-se priorizar a entrega rápida de funcionalidades, o que pode resultar em código com menos cobertura de testes, maior dívida técnica ou maior acoplamento entre componentes.
 
 Tradeoff: Sacrificar a qualidade do código para entregar funcionalidades rapidamente pode acelerar o desenvolvimento inicial, mas a longo prazo pode resultar em um sistema mais difícil de manter e propenso a falhas.
 
-## 4. Diagrama de Classes UML:
+## 4. Diagrama de Classes UML (Padaria):
+<img width="647" height="429" alt="Padaria" src="https://github.com/user-attachments/assets/8666184d-b801-47d3-9768-fb875c75c678" />
 
-<img width="686" height="227" alt="Padaria" src="https://github.com/user-attachments/assets/c2a9bd4b-ff94-4038-900d-ce8b6cf15a62" />
+## 5. Código Java de cada uma das classes (Padaria): 
 
-## 5-6. Código Java de cada uma das classes: 
-
-**Pão:**
+`Pão:`
 ```
 public class Pao {
     private float preco;
@@ -73,7 +72,7 @@ public class Pao {
 
 ```
 
-**Padaria:**
+`Padaria:`
 ```
 public class Padaria {
     private boolean temPao;
@@ -104,7 +103,7 @@ public class Padaria {
 }
 ``` 
 
-**Cliente:** 
+`Cliente:`
 ```
 public class Cliente {
     public String fazerPedido(Padaria padaria) {
@@ -120,8 +119,8 @@ public class Cliente {
     }
 }
 ```
-
-**Teste:** 
+## 6. Testes automatizados:
+`Teste:`
 ```
 public class Teste {
     public static void main(String[] args) {
@@ -140,6 +139,245 @@ public class Teste {
     }
 }
 ```
+## 7. Diagrama de Classes UML (Cinema):
+<img width="770" height="606" alt="Cinema" src="https://github.com/user-attachments/assets/a5da012a-0645-42ff-9ae1-e73c6b6d57a1" />
+
+## 8. Código Java de cada uma das classes (Cinema):
+
+`Cinema`
+```
+package Cinema;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cinema {
+    private List<Filme> filmes;
+    private List<Cliente> clientes;
+    private List<Ingresso> ingressos;
+    private int contadorIngressos;
+
+    public Cinema() {
+        this.filmes = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.ingressos = new ArrayList<>();
+        this.contadorIngressos = 0;
+    }
+
+    public void adicionarFilme(Filme f) {
+        filmes.add(f);
+        System.out.println("Filme '" + f.getTitulo() + "' adicionado ao cinema.");
+    }
+
+    public void registrarCliente(Cliente c) {
+        clientes.add(c);
+        System.out.println("Cliente '" + c.getNome() + "' registrado no cinema.");
+    }
+
+    public Ingresso venderIngresso(Cliente c, Filme f) {
+        if (c.getIdade() < f.getClassificacao()) {
+            System.out.println("Venda negada para " + c.getNome() + ": " +
+                    "idade (" + c.getIdade() + ") não atende a classificação do filme (" +
+                    f.getClassificacao() + " anos).");
+            return null;
+        }
+
+        contadorIngressos++;
+        String codigoIngresso = "ING-" + contadorIngressos;
+
+        double preco = f.getPrecoIngressoInteiro();
+        if (c.getIdade() < 18) {
+            preco /= 2;
+        }
+
+        Ingresso novoIngresso = new Ingresso(codigoIngresso, f, c, preco);
+        ingressos.add(novoIngresso);
+
+        System.out.println("Ingresso vendido com sucesso!");
+        novoIngresso.exibirIngresso();
+        return novoIngresso;
+    }
+
+    public void listarFilmes() {
+        System.out.println("\n --- Filmes em Cartaz ---");
+        for (Filme filme : filmes) {
+            filme.exibirInfo();
+            System.out.println("---------------------------");
+        }
+    }
+}
+```
+
+`Ingressos`
+```
+package Cinema;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cinema {
+    private List<Filme> filmes;
+    private List<Cliente> clientes;
+    private List<Ingresso> ingressos;
+    private int contadorIngressos;
+
+    public Cinema() {
+        this.filmes = new ArrayList<>();
+        this.clientes = new ArrayList<>();
+        this.ingressos = new ArrayList<>();
+        this.contadorIngressos = 0;
+    }
+
+    public void adicionarFilme(Filme f) {
+        filmes.add(f);
+        System.out.println("Filme '" + f.getTitulo() + "' adicionado ao cinema.");
+    }
+
+    public void registrarCliente(Cliente c) {
+        clientes.add(c);
+        System.out.println("Cliente '" + c.getNome() + "' registrado no cinema.");
+    }
+
+    public Ingresso venderIngresso(Cliente c, Filme f) {
+        if (c.getIdade() < f.getClassificacao()) {
+            System.out.println("Venda negada para " + c.getNome() + ": " +
+                    "idade (" + c.getIdade() + ") não atende a classificação do filme (" +
+                    f.getClassificacao() + " anos).");
+            return null;
+        }
+
+        contadorIngressos++;
+        String codigoIngresso = "ING-" + contadorIngressos;
+
+        double preco = f.getPrecoIngressoInteiro();
+        if (c.getIdade() < 18) {
+            preco /= 2;
+        }
+
+        Ingresso novoIngresso = new Ingresso(codigoIngresso, f, c, preco);
+        ingressos.add(novoIngresso);
+
+        System.out.println("Ingresso vendido com sucesso!");
+        novoIngresso.exibirIngresso();
+        return novoIngresso;
+    }
+
+    public void listarFilmes() {
+        System.out.println("\n --- Filmes em Cartaz ---");
+        for (Filme filme : filmes) {
+            filme.exibirInfo();
+            System.out.println("---------------------------");
+        }
+    }
+}
+```
+
+`Cliente`
+```
+package Cinema;
+
+public class Cliente {
+    private String nome;
+    private int idade;
+
+    public Cliente(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void comprarIngresso(Cinema cinema, Filme filme) {
+        cinema.venderIngresso(this, filme);
+    }
+}
+```
+`Filme:`
+```package Cinema;
+
+public class Filme {
+    private String titulo;
+    private int duracao;
+    private int classificacao;
+    private double precoIngressoInteiro;
+
+    public Filme(String titulo, int duracao, int classificacao, double precoIngressoInteiro) {
+        this.titulo = titulo;
+        this.duracao = duracao;
+        this.classificacao = classificacao;
+        this.precoIngressoInteiro = precoIngressoInteiro;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public int getClassificacao() {
+        return classificacao;
+    }
+
+    public double getPrecoIngressoInteiro() {
+        return precoIngressoInteiro;
+    }
+
+    public void exibirInfo() {
+        System.out.println(" Título: " + titulo);
+        System.out.println(" Duração: " + duracao + " min");
+        System.out.println(" Classificação: " + classificacao + " anos");
+        System.out.println(" Preço do Ingresso: R$" + String.format("%.2f", precoIngressoInteiro));
+    }
+}
+```
+
+## 9. Testes automatizados:
+`Teste:`
+```
+package Cinema;
+
+public class TesteCinema {
+    public static void main(String[] args) {
+        Cinema cinema = new Cinema();
+
+        Filme f1 = new Filme("Matrix", 120, 16, 20.0);
+        Filme f2 = new Filme("Toy Story", 90, 0, 15.0);
+        Filme f3 = new Filme("O Exorcista", 110, 18, 25.0);
+
+        cinema.adicionarFilme(f1);
+        cinema.adicionarFilme(f2);
+        cinema.adicionarFilme(f3);
+
+        Cliente joao = new Cliente("João", 17);  // deve pagar meia em filmes que puder assistir
+        Cliente maria = new Cliente("Maria", 12); // pode assistir só alguns filmes
+        Cliente carlos = new Cliente("Carlos", 20); // paga inteira
+        Cliente ana = new Cliente("Ana", 8);  // restrição maior
+
+        cinema.registrarCliente(joao);
+        cinema.registrarCliente(maria);
+        cinema.registrarCliente(carlos);
+        cinema.registrarCliente(ana);
+
+        System.out.println("\n--- TESTES DE COMPRA ---");
+        joao.comprarIngresso(cinema, f1);
+        maria.comprarIngresso(cinema, f1);
+        maria.comprarIngresso(cinema, f2);
+        carlos.comprarIngresso(cinema, f1);
+        ana.comprarIngresso(cinema, f3);
+
+        cinema.listarFilmes();
+    }
+}
+```
+
 
 
 
